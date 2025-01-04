@@ -17,6 +17,7 @@ This guide will walk you through the process of hosting a Photography Portfolio 
    - Name your bucket as `photography-portfolio-bucket` (or any other unique name you prefer).
    - Choose the appropriate region for your bucket.
    - Click on **Create**.
+   - ![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/d5b4d69a9ac2ccbe08daa33720ad761559520952/create-bucket-edit.png)
 
 
 ---
