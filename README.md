@@ -18,7 +18,7 @@ This guide will walk you through the process of hosting a Photography Portfolio 
    - Choose the appropriate region for your bucket.
    - Click on **Create**.
    - ![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/d5b4d69a9ac2ccbe08daa33720ad761559520952/create-bucket-edit.png)
-
+   - ![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/1-bucket-created.png)
 
 ---
 
@@ -30,7 +30,7 @@ This guide will walk you through the process of hosting a Photography Portfolio 
    - Upload all your website files, including HTML, CSS, JS, and images. Make sure to preserve the folder structure if any.
 3. **Confirm Upload**: After the upload completes, you should see all your files listed in the bucket.
 
-**Screenshot Tip**: Capture the screen showing your files uploaded in the bucket (HTML, CSS, JS, images).
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/2-add%20file%20%26%20folders.png)
 
 ---
 
@@ -39,60 +39,90 @@ This guide will walk you through the process of hosting a Photography Portfolio 
 1. **Go to Permissions Tab**: In your S3 bucket, click on the **Permissions** tab.
 2. **Click on Bucket Policy**: Scroll down to find the **Bucket Policy** section and click on **Edit**.
 
-**Screenshot Tip**: Capture a screenshot showing the Permissions tab and where to click to open the Bucket Policy section.
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/3-permission%20TAB.png)
 
 ---
 
 ### **Step 4: Generate a Bucket Policy**
 
 1. **Click on Policy Generator**: To create a policy, click on the **Policy generator** button.
-2. **Select Policy Type**: In the Policy Generator, select **S3 Bucket Policy**.
-3. **Set Permissions**:
+
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/4-edit%20bucket%20policy.png)
+
+---
+
+### **Step 5: Generated Policy to the Bucket Policy**
+
+1. **Select Policy Type**: In the Policy Generator, select **S3 Bucket Policy**.
+2. **Set Permissions**:
    - For **Action**, select `GetObject`. This will allow public read access to all objects in your bucket.
    - For **ARN**, enter: 
      ```
      arn:aws:s3:::photography-portfolio-bucket/*
      ```
      (replace `photography-portfolio-bucket` with your actual bucket name).
-4. **Generate the Policy**: After filling in the details, click **Generate Policy**.
+3. **Generate the Policy**: After filling in the details, click **Generate Policy**.
+4. **Copy the Generated Policy**: After generating the policy, you’ll see it on the screen. Copy the entire generated policy.
+5. **Paste into Bucket Policy**: Go back to the Bucket Policy editor (under the **Permissions** tab) and paste the copied policy into the editor.
 
-**Screenshot Tip**: Capture the page where you select the action and input the ARN, showing the process of generating the policy.
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/5-getobject.png)
+
 
 ---
 
-### **Step 5: Add the Generated Policy to the Bucket Policy**
+### **Step 6: Add the Generated Policy to the Bucket Policy**
 
 1. **Copy the Generated Policy**: After generating the policy, you’ll see it on the screen. Copy the entire generated policy.
 2. **Paste into Bucket Policy**: Go back to the Bucket Policy editor (under the **Permissions** tab) and paste the copied policy into the editor.
 
-**Screenshot Tip**: Capture the editor with the policy pasted, showing the Bucket Policy in the Permissions section.
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/6-policy%20generatded.png)
+
 
 ---
 
-### **Step 6: Save the Changes**
+### **Step 7: Save the Changes**
 
 1. **Save the Policy**: After pasting the policy, click **Save changes** to apply the policy.
 
-**Screenshot Tip**: Capture the final step showing the successful save of the Bucket Policy.
+![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/7-copy%20policy.png)
 
 ---
 
-### **Step 7: Access the Website**
+### **Step 8: Access the Website**
 
 1. **Find the Website URL**:
    - Go to the **Properties** tab of your S3 bucket.
    - Scroll down to the **Static Website Hosting** section.
+   - select the main/default **index.html** page and click on **copy URL** 
    - You will see a URL that looks like this:
      ```
      http://photography-portfolio-bucket.s3-website-us-east-1.amazonaws.com/
      ```
+     ![Create Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/6cde468acf07618e2cb350c467ffa92c4c2b3c61/8.png)
+     
 2. **Test Your Website**: Copy the URL and paste it into your browser. You should now see your website live and accessible!
 
-**Screenshot Tip**: Capture the live website page in the browser after pasting the URL.
+    #### ▶ **Home Page**
+   ![Home Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/home.png)
+
+   #### ▶ **Portfolio Page**
+   ![Portfolio Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/portfolio.png)
+
+   #### ▶ **Gallery Page**
+   ![Gallery Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/Gallery.png)
+
+   #### ▶ **Exhibitions Page**
+   ![Exhibitions Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/exhibitions.png)
+
+   #### ▶ **About Page**
+   ![About Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/about.png)
+
+   #### ▶ **Blog Page**
+   ![Blog Page](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/38072c1d7eb1f75561a30401679610a23d2883eb/blog.png)
 
 ---
 
-## **Final Review/Overview**
+## **Final Review**
 
 In this guide, we walked through the process of hosting a Photography Portfolio Website on AWS S3. First, we created an S3 bucket with a unique name and selected the appropriate region. Next, we uploaded the website files (HTML, CSS, JS, and images) to the bucket. Then, we configured the bucket permissions by adding a Bucket Policy that grants public access to all the files using the `s3:GetObject` action. After that, we used the Policy Generator to create the policy and applied it to the bucket. Finally, we enabled Static Website Hosting, retrieved the public URL, and tested it in the browser to verify the website was live. 
 
