@@ -10,11 +10,9 @@ This guide demonstrates the process of hosting a static website using AWS S3 and
 4. Upload your website files (HTML, CSS, images, etc.) to the bucket.
 5. Ensure that your files are publicly accessible by setting appropriate permissions.
 
-*Screenshot:*
-
-![S3 Bucket Setup](./screenshots/s3_bucket_setup.png)
-
-> **Tip:** S3 is a highly scalable object storage service. By uploading your website files to S3, you are essentially storing them in the cloud, ready for distribution.
+![S3 Bucket Setup](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/1-%20create%20bucket.png)
+![S3 Bucket Setup](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/2-uoload%20file%20and%20folder.png
+)
 
 ## Step 2: Create CloudFront Distribution
 
@@ -24,9 +22,7 @@ This guide demonstrates the process of hosting a static website using AWS S3 and
 
 CloudFront is a Content Delivery Network (CDN) that caches your website’s static content at edge locations across the globe. This helps improve performance by serving content from locations closest to the users.
 
-*Screenshot:*
-
-![CloudFront Distribution Creation](./screenshots/cloudfront_distribution_creation.png)
+![CloudFront Distribution Creation](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/3-%20create%20bucekt%20choose%20origin.png)
 
 > **Tip:** CloudFront speeds up delivery by using edge locations, meaning users accessing your website will get faster load times since data is fetched from a nearby location, not directly from the S3 bucket.
 
@@ -35,9 +31,7 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 1. Under **Origin Settings**, select your S3 bucket from the **Origin Domain** dropdown menu.
 2. The S3 bucket you created earlier should appear in the dropdown list.
 
-*Screenshot:*
-
-![Select S3 Bucket](./screenshots/select_s3_bucket.png)
+![Select S3 Bucket](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/4-%20origin%20access.png)
 
 > **Explanation:** In CloudFront, the **origin** refers to where the content is coming from. In this case, the S3 bucket will serve as the origin for your CloudFront distribution. CloudFront fetches content from this origin when users request it.
 
@@ -49,12 +43,12 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
    - Click on **Create new OAC**.
    - Enter your S3 bucket name when prompted.
 
+ ![Origin Access Control](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/5-create%20new%20OAC.png)
+
 2. ### 4.2 Select the Created OAC:
    - In the dropdown, select the OAC you just created.
 
-*Screenshot:*
-
-![Origin Access Control](./screenshots/origin_access_control.png)
+![Origin Access Control](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/6-select%20origin%20access.png)
 
 > **Explanation:** CloudFront uses **Origin Access Control (OAC)** to securely fetch content from your S3 bucket. By creating and selecting an OAC, you're ensuring that only CloudFront can access your S3 bucket, preventing direct public access to your bucket's files.
 
@@ -62,9 +56,7 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 
 - Under **Cache Policy**, you can choose either a custom policy or use the default policy. I have selected the default policy.
 
-*Screenshot:*
-
-![Cache Policy](./screenshots/cache_policy.png)
+![Cache Policy](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/7-Cache%20policy.png)
 
 > **Explanation:** The cache policy defines how CloudFront caches your content at edge locations. By choosing the default policy, CloudFront will cache your content based on standard HTTP headers, improving response time and reducing the load on your S3 bucket.
 
@@ -72,20 +64,14 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 
 - In the **Web Application Firewall (WAF)** section, select **Disable WAF**.
 
-*Screenshot:*
-
-![Disable WAF](./screenshots/disable_waf.png)
-
-> **Note:** WAF (Web Application Firewall) is a service to help protect your site from malicious traffic. For simplicity, we are disabling it in this practice setup. However, it's recommended to enable WAF in production environments.
+![Disable WAF](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/8-Web%20Application%20Firewall%20(WAF).png)
 
 ## Step 7: Create the Distribution
 
 1. After configuring the settings, click **Create Distribution**.
 2. A notification will appear saying "Copy Policy".
 
-*Screenshot:*
-
-![Create Distribution](./screenshots/create_distribution.png)
+![Create Distribution](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/9-copy%20policy.png)
 
 > **Tip:** After creating the distribution, CloudFront will start deploying your settings. This process can take some time because CloudFront is propagating your settings across its global edge network.
 
@@ -96,9 +82,7 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 3. Under **Permissions**, click on **Bucket Policy**.
 4. Paste the copied policy and click **Save Changes**.
 
-*Screenshot:*
-
-![S3 Bucket Policy](./screenshots/s3_bucket_policy.png)
+![S3 Bucket Policy](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/10-add%20policy%20to%20S3.png)
 
 > **Explanation:** This policy allows CloudFront to access the S3 bucket's content securely. By pasting it in your S3 bucket's policy, you're granting CloudFront the necessary permissions to serve the files.
 
@@ -109,11 +93,7 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 3. Open the distribution, go to **Settings**, and click **Edit**.
 4. In the **Default Root Object** field, enter the name of your default HTML file (e.g., `index.html`).
 
-*Screenshot:*
-
-![Default Root Object](./screenshots/default_root_object.png)
-
-> **Explanation:** The **Default Root Object** is the file CloudFront will serve when users access the root URL of your domain (e.g., `http://yourdomain.com`). Typically, this would be `index.html` for most websites.
+![Default Root Object](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/11-root%20name.png)
 
 ## Step 10: Wait for Distribution Deployment
 
@@ -121,9 +101,7 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 2. Once deployed, you will see a timestamp indicating deployment completion.
 3. Copy the **Distribution Domain Name** provided by CloudFront.
 
-*Screenshot:*
-
-![Distribution Domain](./screenshots/distribution_domain.png)
+![Distribution Domain](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/12-deployed.png)
 
 > **Explanation:** CloudFront deploys content to its edge locations around the world. Once deployed, CloudFront will distribute your website from multiple locations to ensure fast access for global users. The **Distribution Domain Name** is the URL that you will use to access your website.
 
@@ -132,13 +110,22 @@ CloudFront is a Content Delivery Network (CDN) that caches your website’s stat
 1. Open your browser and paste the **Distribution Domain Name**.
 2. Your website should be live!
 
-*Screenshot:*
-
-![Website Output](./screenshots/website_output.png)
-
-> **Final Note:** After successful deployment, CloudFront acts as the CDN (Content Delivery Network) that caches and serves your website content to end-users. This improves the speed and reliability of your website.
+![Website Output](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/42d4f346756e6ab736b6944b1a6af98f43677df1/13-website.png)
 
 ---
 
-Now your website is hosted via S3 and CloudFront! You can share the CloudFront distribution domain to allow users to access the site.
+## Conclusion
+
+Congratulations! You have successfully set up a static website hosted on AWS S3 and distributed globally using CloudFront. By following this guide, you’ve learned how to:
+
+- Create and configure an S3 bucket to store your website files.
+- Set up a CloudFront distribution to serve your content quickly and securely from AWS's global edge locations.
+- Use CloudFront’s caching and security features to optimize the performance and access control of your site.
+
+This setup provides a highly scalable, reliable, and fast hosting solution for static websites. CloudFront's CDN ensures your site loads quickly from any part of the world, making it a great choice for production environments.
+
+Feel free to explore additional CloudFront features like custom domains, HTTPS, and advanced caching strategies to further optimize your website.
+
+Happy hosting, and good luck with your AWS journey!
+
 
