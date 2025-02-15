@@ -1,80 +1,215 @@
-# Terraform EC2 Website Deployment
+# Terraform-Based EC2 Deployment Documentation
 
-This Terraform project automates the deployment of a static website on an EC2 instance hosted on AWS. It provisions an EC2 instance, configures security groups, installs Apache, and clones a GitHub repository to serve the website.
+## Overview
 
-## 🚀 Prerequisites
+This document provides step-by-step guidance on deploying an EC2 instance with a hosted website using Terraform. The deployment includes Apache installation, Git integration, and automated provisioning via a user-data script. By following this guide, you will learn how to create and manage cloud infrastructure efficiently using Infrastructure as Code (IaC).
 
-Before you begin, ensure you have the following:
+---
 
-- **AWS Account**: An AWS account with the necessary IAM permissions.
-- **Terraform**: Install Terraform to manage infrastructure as code.
-- **AWS CLI**: Ensure the AWS CLI is installed and configured with your credentials.
-- **SSH Key Pair**: An SSH key pair to access the EC2 instance. This needs to be created before starting the deployment process.
+## Prerequisites
 
-## 🧑‍💻 File Structure
+Before starting the deployment, ensure you have the following:
 
-### `main.tf`
+- **AWS Account**: You need valid AWS credentials with permissions to create EC2 instances.
+- **Terraform Installed**: Ensure Terraform is installed on your local machine.
+- **GitHub Repository**: A repository containing the website files that will be deployed.
 
-This file contains the main configuration for your Terraform infrastructure. It includes:
+---
 
-- The **AWS provider** configuration for the region.
-- The configuration for creating an **EC2 instance** that will run the website.
-- The creation of a **security group** that allows inbound HTTP (port 80) and SSH (port 22).
+## Project Structure
 
-### `variables.tf`
+```
+project-folder/
+│-- main.tf               # Terraform main configuration file
+│-- variables.tf          # Input variables definition
+│-- terraform.tfvars      # Values for variables
+│-- user-data.sh          # Script to set up Apache & deploy the website
+```
 
-This file defines the input variables used in the Terraform configuration. It includes variables for:
+Each file has a specific role in setting up the infrastructure and automating the deployment process.
 
-- The **region** to deploy resources to.
-- The **AMI ID** to use for the EC2 instance.
-- The **instance type** (e.g., `t2.micro`).
-- The **SSH key name** for accessing the EC2 instance.
+---
 
-### `terraform.tfvars`
+## Terraform Configuration
 
-In this file, you specify the values for the variables defined in `variables.tf`. These values control how the infrastructure is deployed, such as the AWS region, AMI ID, instance type, and SSH key name.
+### 1. **main.tf** (Core Terraform Code)
 
-### `user-data.sh`
+This file defines the Terraform provider and resources needed to create an AWS EC2 instance. It specifies the instance type, AMI, security groups, and user-data script for automatic provisioning.
 
-This shell script runs automatically when the EC2 instance starts. It sets up the necessary environment on the EC2 instance, including:
+```hcl
+provider "aws" {
+  region = var.aws_region
+}
 
-- Updating the instance to ensure it has the latest software.
-- Installing **Apache2** and **Git**.
-- Cloning a GitHub repository containing the website files.
-- Setting the correct permissions and restarting Apache to serve the website.
+resource "aws_instance" "web" {
+  ami           = var.ami_id
+  instance_type = var.instance_type
+  key_name      = var.key_name
 
-## 🛠️ Getting Started
+  security_groups = ["default"]
 
-1. **Clone the Repository**: Download the repository to your local machine to begin using the Terraform scripts.
+  user_data = file("user-data.sh")
 
-2. **Configure Variables**: Edit the `terraform.tfvars` file to set the region, AMI ID, instance type, and SSH key name that you will use for your EC2 instance.
+  tags = {
+    Name = "Terraform-Web-Server"
+  }
+}
 
-3. **Initialize Terraform**: Initialize the Terraform working directory. This step prepares Terraform to manage the infrastructure.
+resource "aws_security_group" "Demo-SG" {
+  name        = "Demo-SG"
+  description = "Allow HTTP & SSH"
 
-4. **Plan the Deployment**: Run a Terraform plan to preview what resources will be created and make sure everything looks correct before proceeding.
+  ingress {
+    description = "HTTP Port"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
-5. **Apply the Configuration**: Apply the Terraform configuration to provision the resources on AWS. Terraform will create the EC2 instance, security group, and deploy the website as specified.
+  ingress {
+    description = "SSH Port"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
-6. **Access the Website**: Once the EC2 instance is launched and configured, you can access the website by using the EC2 instance’s public IP address.
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
 
-## 🔧 Resources Created
+---
 
-- **EC2 Instance**: A new EC2 instance running Apache2 and your website.
-- **Security Group**: A security group that allows HTTP traffic (port 80) and SSH access (port 22).
+### 2. **variables.tf** (Defining Variables)
 
-## 💡 How `user-data.sh` Works
+This file defines the input variables used in the Terraform configuration. It makes the configuration dynamic and reusable, allowing values to be changed easily.
 
-The `user-data.sh` script is executed during the startup of the EC2 instance and performs the following tasks:
+```hcl
+variable "aws_region" {}
+variable "ami_id" {}
+variable "instance_type" {}
+variable "key_name" {}
+```
 
-1. Updates the EC2 instance to ensure it has the latest security patches.
-2. Installs **Apache2** and **Git** to set up the web server and clone the website files.
-3. Configures Apache to serve the cloned website files from GitHub.
-4. Sets appropriate file permissions to ensure Apache can serve the files correctly.
-5. Restarts Apache to ensure the website is properly loaded.
+---
 
-The script uses a default GitHub repository URL. If you wish to deploy a different website, simply replace the repository URL in the script.
+### 3. **terraform.tfvars** (Assigning Values to Variables)
 
-## 🧹 Clean Up
+This file assigns actual values to the defined variables, making it easy to manage configurations without modifying the main configuration file.
 
-Once you're done with the infrastructure, you can run the `terraform destroy` command to delete all the resources created by Terraform. This will help avoid any unwanted AWS charges.
+```hcl
+aws_region = "us-east-1"
+ami_id = "ami-12345678"
+instance_type = "t2.micro"
+key_name = "my-key"
+```
 
+---
+
+### 4. **user-data.sh** (Provisioning the Instance)
+
+This script is executed automatically when the EC2 instance is launched. It installs Apache, fetches website files from GitHub, and sets up the web server to serve the content.
+
+```bash
+#!/bin/bash
+
+# Update the instance
+sudo apt update -y
+
+# Install Apache2
+sudo apt install apache2 git -y
+
+# Enable Apache to start on boot and start the service
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+# Clone website files from GitHub
+mkdir -p /tmp/website
+git clone YOUR GITHUB REPO LINK /tmp/website/
+
+# Clear existing Apache web directory
+sudo rm -rf /var/www/html/*
+
+# Copy the website files to the Apache web directory
+sudo cp -r /tmp/website/* /var/www/html/
+
+# Set permissions for the web directory
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+
+# Restart Apache to apply changes
+sudo systemctl restart apache2
+```
+
+---
+
+## Deployment Steps
+
+Follow these steps to deploy the infrastructure using Terraform:
+
+1. **Initialize Terraform**
+
+   ```sh
+   terraform init
+   ```
+
+   This command initializes the working directory and downloads the necessary provider plugins.
+
+2. **Plan the Infrastructure**
+
+   ```sh
+   terraform plan
+   ```
+
+   This command shows the changes that Terraform will apply to the infrastructure.
+
+3. **Apply the Configuration**
+
+   ```sh
+   terraform apply -auto-approve
+   ```
+
+   This command deploys the infrastructure as per the configuration.
+
+4. **Access the Website**
+
+   - Retrieve the instance public IP:
+     ```sh
+     terraform output
+     ```
+   - Open `http://<PUBLIC_IP>` in a browser to view the hosted website.
+
+---
+
+## Cleanup
+
+If you need to remove the deployed infrastructure, use the following command:
+
+```sh
+terraform destroy -auto-approve
+```
+
+This will delete all resources created by Terraform.
+
+---
+
+## Conclusion
+
+This setup automates the provisioning of an EC2 instance, installs necessary dependencies, and deploys a website using Terraform and a Bash script. Modify variables as needed for different environments. This approach ensures a repeatable and efficient deployment process for web applications.
+
+---
+
+## Screenshot of Successful Deployment
+
+Below is a screenshot showing the successfully deployed website running on the EC2 instance.
+
+![My Image](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/5f8bf0f368ca733b27b10f8e9f472553e50a6c8f/Ec2_Created.png
+)
+
+![My Image](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/28eddcbbb84a56c138bf81dca427841f77e0f838/13-website.png)
