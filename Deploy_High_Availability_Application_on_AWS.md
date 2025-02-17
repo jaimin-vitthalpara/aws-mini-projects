@@ -96,6 +96,24 @@ Public subnets enable direct internet access for external resources, while priva
 
 ---
 
+## Technical Workflow
+
+- **User Traffic:** When users access the web application, the ALB manages the incoming traffic and distributes it across the available instances.
+
+- **Traffic Surge:** If there is an increase in traffic, CPU utilization on instances rises.
+
+- **Stress Test:** We manually run a stress command to simulate high CPU usage.
+
+- **Auto Scaling Trigger:** When CPU utilization exceeds 50%, the Auto Scaling Group (ASG) launches new instances to balance the load.
+
+- **CloudWatch Monitoring:** CloudWatch continuously monitors instance performance and triggers an alarm when CPU usage exceeds the threshold.
+
+- **Notification Alert:** An email alert is sent when the ASG scales instances up or down.
+
+- **Scale-In Policy:** When CPU utilization drops, ASG automatically removes extra instances to optimize costs.
+
+---
+
 ## Conclusion
 
 This project sets up a **Highly Available (HA)** web application on **AWS**, leveraging Auto Scaling and Load Balancing across multiple Availability Zones to handle varying traffic loads. By using CloudWatch for real-time monitoring and auto-scaling, the architecture ensures fault tolerance, scalability, and high availability, adapting automatically to demand without manual intervention.
