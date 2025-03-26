@@ -18,8 +18,22 @@ The aim of this project is to automate the process of hosting a static website o
         }
       }
 
+2. **Block Public Access settings:**
+   - Disble block policy 
+  
+          ```
+           resource "aws_s3_bucket_public_access_block" "public_access_block" {
+           bucket = aws_s3_bucket.bucket.id
 
-2. **Enable Static Website Hosting:**
+           block_public_acls       = false
+           ignore_public_acls      = false
+           block_public_policy     = false
+           restrict_public_buckets = false
+     }
+
+
+
+3. **Enable Static Website Hosting:**
    - Terraform will configure the bucket to serve static content like HTML, CSS, JavaScript, and image files, allowing it to function as a static website.
    - The index file and error page will be specified for default redirects (e.g., `index.html` as the homepage).
   
@@ -37,7 +51,7 @@ The aim of this project is to automate the process of hosting a static website o
       }
 
      
-3. **Upload Website Content:**
+4. **Upload Website Content:**
    - The content of the static website (e.g., HTML, CSS, JS files) will be uploaded to the S3 bucket from the absolute file path specified by the user.
    - Terraform will automate this step, making it easy to update the content whenever required.
   
@@ -63,7 +77,7 @@ The aim of this project is to automate the process of hosting a static website o
    }
 
 
-4. **Configure Bucket Policy:**
+5. **Configure Bucket Policy:**
    - Terraform will apply a bucket policy to make the content publicly accessible, ensuring users can view the website by visiting the S3 URL.
   
      
@@ -85,7 +99,7 @@ The aim of this project is to automate the process of hosting a static website o
          }
 
 
-5. **Access the Website:**
+6. **Access the Website:**
    - After deployment, the website will be accessible through the S3 bucket's public URL, allowing users to access the static site over the web.
   
      
@@ -95,7 +109,7 @@ The aim of this project is to automate the process of hosting a static website o
          }
 
         
-6. **Automating Terraform Commands:**
+7. **Automating Terraform Commands:**
    -  You can automate the Terraform deployment by running the following Terraform commands:
    - After you have configured your AWS credentials using `aws configure`, you can automate the process of running Terraform commands using the following steps:
      
