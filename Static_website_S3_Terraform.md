@@ -155,3 +155,19 @@ The aim of this project is to automate the process of hosting a static website o
 ## Outcome
 
 By the end of this project, you will have a fully automated infrastructure using Terraform to host a static website on AWS S3. This approach makes it easier to manage and scale your website with minimal manual intervention.
+
+## Screenshots
+1. **Terraform S3 Bucket Code**
+![Terraaform Code](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/00566d27048ee73fb31bb436cfcffe89e4f3dbfd/Screenshot%20(22).png)
+
+2. **Terraform S3 Bucket Code Successfully Run**
+![Terraform S3 Bucket Code Successfully Run](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/9738053d882a76ba874137f0f6e29a06b1786a78/Screenshot%20(25).png)
+
+3. **S3 Bucket Created**
+![S3 Bucket Created](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/9738053d882a76ba874137f0f6e29a06b1786a78/Terraform_S3_Bucket-Created.png)
+
+4. **S3 Bucket Objects**
+![S3 Bucket Objects](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/9738053d882a76ba874137f0f6e29a06b1786a78/Terraform_S3_Bucket-Objects.png)
+
+5. **WebSite**
+![WebSite](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/9738053d882a76ba874137f0f6e29a06b1786a78/Terraform_S3_Bucket-Host-websites.png)
