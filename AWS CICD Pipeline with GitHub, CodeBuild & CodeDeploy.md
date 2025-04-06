@@ -190,25 +190,27 @@ Once the pipeline is triggered:
 ![Code Build](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/1_Code_Build2.png)
 ![Code_Build_Suceess_phases](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/1_Code_Build_Suceess_phases.png)
 
+2. **S3 Bucket Artifact**
+![S3 Bucket Artifact](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_S3_bkt_Zip.png)
 
-2. **Code Deploy**
+3. **Code Deploy**
 ![Code Deploy Application](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_application.png)
 ![Code Deploy group](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_Deploy-grp.png)
 ![Code Deploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_Instance.png)
 
 
-3. **IAM Roles**
+4. **IAM Roles**
 ![IAM Role attach to CodeBuild](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_CodeBuild_Roles_Policies.png)
 ![IAM Role attach to CodeDeploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_CodeDeploy_Roles_Policies.png)
 ![IAM Role attach to Ec2CodeDeploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_Ec2CodeDeploy_Roles_Policies.png)
 
 
-4. **Code Pipeline**
+5. **Code Pipeline**
 ![Code Pipeline](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/3_Code_pipeline.png)
 ![Code Pipeline Success](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/3_Code_pipeline_successfull.png)
 
 
-5. **Instance & OP**
+6. **Instance & OP**
 ![Instance & OP](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/4_Pipeline_Instance.png)
 ![Instance & OP](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/4_Website_OP.png)
 
