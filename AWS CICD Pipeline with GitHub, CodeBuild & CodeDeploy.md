@@ -192,25 +192,27 @@ Once the pipeline is triggered:
 
 2. **S3 Bucket Artifact**
 ![S3 Bucket Artifact](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_S3_bkt_Zip.png)
+![S3 Bucket Custom Pipeline Zip](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/26b5a4d0b42cef3c37f7032daa92fa36414ad797/5_S3_bkt_custom_pipelinr_Zip.png)
 
-3. **Code Deploy**
+
+4. **Code Deploy**
 ![Code Deploy Application](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_application.png)
 ![Code Deploy group](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_Deploy-grp.png)
 ![Code Deploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/2_Code_deploy_Instance.png)
 
 
-4. **IAM Roles**
+5. **IAM Roles**
 ![IAM Role attach to CodeBuild](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_CodeBuild_Roles_Policies.png)
 ![IAM Role attach to CodeDeploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_CodeDeploy_Roles_Policies.png)
 ![IAM Role attach to Ec2CodeDeploy](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/5_Ec2CodeDeploy_Roles_Policies.png)
 
 
-5. **Code Pipeline**
+6. **Code Pipeline**
 ![Code Pipeline](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/3_Code_pipeline.png)
 ![Code Pipeline Success](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/3_Code_pipeline_successfull.png)
 
 
-6. **Instance & OP**
+7. **Instance & OP**
 ![Instance & OP](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/4_Pipeline_Instance.png)
 ![Instance & OP](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/0760fe08cc00ef0c6cf06364b2c7a8c19d86385d/4_Website_OP.png)
 
