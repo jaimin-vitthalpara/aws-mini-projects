@@ -178,8 +178,6 @@ This project helped me get hands-on with **Amazon Kinesis**, **AWS Lambda**, **D
 
 ---
 
----
-
 ## 🤝 Let's Connect!
 
 If you found this helpful, feel free to connect or DM me on [LinkedIn ~ Jaimin Vitthalpara](https://www.linkedin.com/in/jaimin-vitthalpara-291a6a14b) and let's talk about AWS & cloud projects 🚀
