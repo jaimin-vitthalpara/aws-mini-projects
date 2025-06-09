@@ -33,6 +33,7 @@ Whether you're a student, fresher, job-seeker, or someone preparing for AWS cert
 | 8️⃣ | **Serverless Form Project** | Build a serverless app using API Gateway, Lambda (Python), and DynamoDB |
 | 9️⃣ | **Terraform EC2 Web Deploy** | Automate the deployment of an EC2 instance with Nginx using Terraform |
 | 🔟 | **WeatherBot using Lex + Lambda** | Chatbot built with Amazon Lex, Lambda, and OpenWeather API for real-time weather updates |
+| 1️⃣1️⃣ | **Part 1 - Docker Image Optimization**      | Reduce Docker image size using Alpine base image, `.dockerignore`, and multi-stage builds |
 
 ---
 
