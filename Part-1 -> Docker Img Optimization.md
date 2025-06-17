@@ -113,7 +113,7 @@ In **Part 2**, I’ll dive deeper into advanced techniques:
 - Using `.dockerignore` properly
 - Docker layer caching
 
-👉 [Part 2 coming soon..](#)
+👉 [Check part-2](https://github.com/jaimin-vitthalpara/aws-mini-projects/blob/main/Part-2%20-%3E%20Docker%20Img%20Optimization.md)
 
 ---
 
