@@ -35,6 +35,8 @@ Whether you're a student, fresher, job-seeker, or someone preparing for AWS cert
 | 🔟 | **WeatherBot using Lex + Lambda** | Chatbot built with Amazon Lex, Lambda, and OpenWeather API for real-time weather updates |
 | 1️⃣1️⃣ | **Part 1 - Docker Image Optimization**      | Reduce Docker image size using Alpine base image, `.dockerignore`, and multi-stage builds |
 | 1️⃣2️⃣ | **Part 2 - Docker Image Optimization**      | Further optimize Docker images using best practices for caching, layering, and security |
+| 1️⃣3️⃣ | **Cloud Portfolio website - AmazonQ**    | Building My Real Personal Cloud Portfolio Website using AmaxonQ |
+
 
 
 ---
@@ -57,8 +59,8 @@ I'm an aspiring Cloud Engineer actively upskilling through hands-on projects, cl
 
 ## 📬 Let's Connect
 
-- 🔗 [LinkedIn – Jaimin Vitthalpara](https://www.linkedin.com/in/jaimin-vitthalpara-291a6a14b)
-- 💻 [GitHub Profile](https://github.com/jaimin-vitthalpara)
+- 🔗 [LinkedIn – Jaimin Vitthalpara](https://www.linkedin.com/in/jaimin-vitthalpara-291a6a14b) 😎
+- 💻 [GitHub – Jaimin Vitthalpara](https://github.com/jaimin-vitthalpara) 😎
 - 📁 Check out more of my repositories and DevOps/Cloud explorations
 
 If you found this repo helpful or interesting, feel free to star ⭐ it — and connect with me to collaborate or chat!
