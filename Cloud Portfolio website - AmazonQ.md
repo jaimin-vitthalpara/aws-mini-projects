@@ -109,7 +109,7 @@ Your portfolio should now be running on `http://localhost:3000`.
 ![Install AmazonQ Plugin in VS code](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/2b348d579e0fcbfe87a8c6150f0bedeefda546d4/Screenshot%20(30).png)
 
 2. **My Cloud Portfolio Screenshot**
-![My Cloud Portfolio](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/d8e192718ab1c850ec480e807fd80a7ec0394a8f/Bootstrap-amazonQ-portfolio.png)
+![My Cloud Portfolio](https://github.com/jaimin-vitthalpara/TestingJenkinsRepo/blob/4c45aa950342720bca4d0e15d8dded338417f80e/Updates_AmazonQ_portfolio_SS.png)
 
 ---
 
